@@ -74,14 +74,15 @@ int main() {
 		adjArray.resize(n + 1);
 		turret_num = 0;
 		for (int j = 0; j < m; j++) {
+
 			cin >> s >> e;
-			AddEdge(s, e); 
+			AddEdge(s, e);
 		}
 		DFS_List(adjArray);
 		for (int i = 1; i <= n; i++) {
 			if (turret[i] == 1)
 				turret_num++;
 		}
-		cout << "\t 결과:" << turret_num << endl;
+		cout << "출력:" << turret_num << endl;
 	}
 }
