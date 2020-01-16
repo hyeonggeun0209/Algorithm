@@ -13,9 +13,10 @@ bool operator>(Edge a, Edge b) {
 priority_queue<Edge, vector<Edge>, greater<Edge>> minHeap;
 int n, m;
 int s, e, w;
-vector<int> p;
-vector<int> ranks;
-vector<Edge> result;
+vector<int> p; // 집합에서 부모 노드를 나타냄 
+vector<int> ranks; // 집합에서 rank를 나타냄 
+vector<Edge> result; // 크루스칼 알고리즘의 결과 저장(선택된 에지들)
+
 void Make_Set(int x) {
 	p[x] = x;
 	ranks[x] = 0;
@@ -35,9 +36,9 @@ void Union(int x, int y) {
 	else
 	{
 		p[x1] = y1;
-		
-	if (ranks[x1] == ranks[y1])
-		ranks[y1] = ranks[y1] + 1;
+
+		if (ranks[x1] == ranks[y1])
+			ranks[y1] = ranks[y1] + 1;
 	}
 }void Kruskal() {
 	for (int i = 1; i <= n; i++)
